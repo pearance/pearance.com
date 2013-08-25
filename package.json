@@ -1,0 +1,21 @@
+{
+  "author": "Fontaine Cook",
+  "name": "Pearance-Site",
+  "description": "Pearance company site",
+  "version": "0.0.1",
+  "private": "true",
+  "main": "site.js",
+  "dependencies": {
+    "express": "~3.3.5",
+    "ejs": "~0.8.4",
+    "stylus": "~0.36.1",
+    "nib": "~0.9.2",
+    "sax": "~0.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pearance/pearance.com.git"
+  },
+  "readme": "Readme Text Here",
+  "readmeFilename": "readme.md"
+}
