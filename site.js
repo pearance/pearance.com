@@ -15,8 +15,6 @@ var express         = require('express');
 var http            = require('http');
 var path            = require('path');
 var ejs             = require('ejs');
-var stylus          = require('stylus');
-var nib             = require('nib');
 var site            = express();
 
 
@@ -32,21 +30,7 @@ var site            = express();
 /* DEVELOPMENT ENVIRONMENT {{{
 ----------------------------------------------------------------------------- */
 site.configure('development', function(){
-  var stylusMiddleware = stylus.middleware({
-  src: __dirname + '/source',
-  dest: __dirname + '/public',
-  debug: true,
-  compile: function(str, path) {
-    return stylus(str)
-      .set('filename', path)
-      .set('warn', true)
-      .set('compress', true)
-      .use(nib())
-      .import('nib');
-    }
-  });
-  site.use(stylusMiddleware);
-  site.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+	site.use(express.errorHandler({ dumpExceptions: true, showStack: true  }));
 });
 
 
@@ -62,7 +46,6 @@ site.configure('development', function(){
 /* PRODUCTION ENVIRONMENT {{{
 ----------------------------------------------------------------------------- */
 site.configure('production', function(){
-  site.use(express.errorHandler());
 });
 
 
