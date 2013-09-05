@@ -13,7 +13,5 @@
   "repository": {
     "type": "git",
     "url": "http://github.com/pearance/pearance.com.git"
-  },
-  "readme": "Readme Text Here",
-  "readmeFilename": "readme.md"
+  }
 }
