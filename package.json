@@ -7,8 +7,15 @@
   "main": "site.js",
   "dependencies": {
     "express": "~3.3.5",
-    "ejs": "~0.8.4",
-    "sax": "~0.5.4"
+    "ejs": "~0.8.4"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-nodemon": "~0.1.0",
+    "grunt-concurrent": "~0.3.1",
+    "grunt-contrib-jshint": "~0.6.4"
   },
   "repository": {
     "type": "git",
