@@ -18,8 +18,47 @@
 	var express         = require('express');
 	var http            = require('http');
 	var path            = require('path');
-	var ejs             = require('ejs');
+	var klei            = require('klei-dust');
+	var dust            = require('dustjs-linkedin');
 	var site            = express();
+
+
+
+
+
+
+
+
+
+
+	//}}}
+	/* ALL ENVIRONMENTS {{{
+	----------------------------------------------------------------------------- */
+
+ // assign the dust engine to .dust files
+
+	site.configure(function() {
+		site.engine('html', klei.dust);
+		site.set('view engine', 'html');
+		site.set('view options', {layout: false});
+		site.set('views', __dirname + '/views');
+		site.set('template_engine', 'dust');
+		site.set('port', process.env.PORT || 3000);
+
+		klei.setOptions({
+			extension: 'html',
+			cache: false,
+			useHelpers: true
+		});
+
+		site.use(express.logger('dev'));
+		site.use(express.bodyParser());
+		site.use(express.methodOverride());
+		site.use(site.router);
+		site.use(express.static(path.join(__dirname, 'public')));
+		site.use(express.favicon(path.join(__dirname, 'public/img/favicon.ico')));
+	});
+
 
 
 
@@ -34,9 +73,7 @@
 	/* DEVELOPMENT ENVIRONMENT {{{
 	----------------------------------------------------------------------------- */
 	site.configure('development', function(){
-		site.use(express.logger('dev'));
 		site.use(express.errorHandler({ dumpExceptions: true, showStack: true  }));
-
 		site.enable('verbose errors');
 	});
 
@@ -55,28 +92,6 @@
 	site.configure('production', function(){
 		site.disable('verbose errors');
 	});
-
-
-
-
-
-
-
-
-
-
-	//}}}
-	/* ALL ENVIRONMENTS {{{
-	----------------------------------------------------------------------------- */
-	site.set('port', process.env.PORT || 3000);
-	site.set('views', __dirname + '/views');
-	site.set('view engine', 'ejs');
-
-	site.engine('.html', require('ejs').__express);
-
-	site.use(express.favicon());
-	site.use(express.static(__dirname + '/public'));
-
 
 
 
