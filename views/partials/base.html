@@ -1,0 +1,98 @@
+<!doctype html>
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="author" content="Fontaine Cook">
+		<meta name="description" content="Perance Site">
+		<meta name="viewport" content="width=device-width">
+
+		<title><%= title %></title>
+
+		<link rel="stylesheet" href="com/MaxImage/lib/css/jquery.maximage.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+
+		<script src="js/vendor/custom.modernizr.js"></script> <!-- keep as first script -->
+	</head>
+	<body>
+		<div id="global-wrap">
+
+			{! Browser Update !}
+			<!--[if lt IE 8]>
+				<div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'>
+					<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+						<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+					</a>
+				</div>
+			<![endif]-->
+
+			<header>
+				{+header}
+				<section id="brand">
+					<img src="img/brand.png" alt="Pearance"><span class="visuallyhidden">Pearance</span>
+				</section>
+
+				<section id="persistent-contact">
+					<span>201-333-4444</span>
+				</section>
+				{/header}
+			</header>
+
+			<main>
+				{+main}
+
+				{/main}
+			</main>
+
+			<aside>
+				{+sideBar/}
+			</aside>
+
+			<footer>
+				{+footer}
+
+				{/footer}
+			</footer>
+		</div>{! global-wrap !}
+
+		{! Zepto/jQuery !}
+		<script>
+			document.write('
+				<script src=' + ('__proto__' in {} ? 'public/js/vendor/zepto' : 'public/js/vendor/jquery') + '.js> <\/script>
+			')
+		</script>
+
+		{! Foundation Scripts !}
+		<script src="js/foundation/foundation.js"></script>
+		<script src="js/foundation/foundation.alerts.js"></script>
+		<script src="js/foundation/foundation.clearing.js"></script>
+		<script src="js/foundation/foundation.cookie.js"></script>
+		<script src="js/foundation/foundation.dropdown.js"></script>
+		<script src="js/foundation/foundation.forms.js"></script>
+		<script src="js/foundation/foundation.joyride.js"></script>
+		<script src="js/foundation/foundation.magellan.js"></script>
+		<script src="js/foundation/foundation.orbit.js"></script>
+		<script src="js/foundation/foundation.placeholder.js"></script>
+		<script src="js/foundation/foundation.reveal.js"></script>
+		<script src="js/foundation/foundation.section.js"></script>
+		<script src="js/foundation/foundation.tooltips.js"></script>
+		<script src="js/foundation/foundation.topbar.js"></script>
+		<script src="js/foundation/foundation.interchange.js"></script>
+
+		<script>
+			$(document).foundation();
+		</script>
+
+		{! Google Analytics !}
+		{! change UA-XXXXX-X to be your site's ID !}
+		<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src='//www.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+	</body>
+</html>
