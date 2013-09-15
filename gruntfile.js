@@ -1,3 +1,11 @@
+// vim:fdm=marker:
+//                         _    __ _ _         _
+//   __ _ _ __ _   _ _ __ | |_ / _(_) | ___   (_)___
+//  / _` | '__| | | | '_ \| __| |_| | |/ _ \  | / __|
+// | (_| | |  | |_| | | | | |_|  _| | |  __/_ | \__ \
+//  \__, |_|   \__,_|_| |_|\__|_| |_|_|\___(_)/ |___/
+//  |___/                                   |__/
+
 module.exports = function(grunt) {
 
 	'use strict';
@@ -67,6 +75,7 @@ module.exports = function(grunt) {
 	// WATCH {{{
 		watch: {
 			options: {
+				// http://serverfault.com/questions/182070/ubuntu-iptables-open-port
 				livereload: true,
 				spawn: false
 			},
@@ -101,14 +110,12 @@ module.exports = function(grunt) {
 
 	});
 //}}}
-// LOAD PLUGINS {{{
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-//}}}
 // REGISTER TASKS {{{
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
 	grunt.registerTask('dev', [
 		'jshint:dev',
 		'concurrent:dev'
 	]);
 //}}}
-// http://serverfault.com/questions/182070/ubuntu-iptables-open-port
 };
